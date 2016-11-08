@@ -14,3 +14,7 @@ python run.py < [input_file]
 - Francisco
 - Antonio
 - Angel
+
+## Library used:
+
+NumPy: https://docs.scipy.org/doc/numpy-dev/user/quickstart.html
