@@ -8,6 +8,7 @@ python run.py < [input_file]
 
 - Python 2.7
 - Only *.arff files as input
+- NumPy (details below)
 
 ## Team Members:
 
