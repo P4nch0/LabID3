@@ -1,9 +1,9 @@
-# pancho
 import sys
 import id3
 import numpy as np
 
 if __name__ == '__main__':
+    result = id3.ID3()
     attr_end = False
     attrs = []
     data = []
@@ -34,6 +34,5 @@ if __name__ == '__main__':
     params = data[:, 0:-1]
     ans = data[:, -1]
 
-    result = id3.ID3()
-    result.fit(params, ans, attrs[0:-1])
+    result.create_tree(params, ans, attrs[0:-1])
     print str(result)
