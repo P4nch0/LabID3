@@ -32,3 +32,28 @@ class ID3(object):
             fattributes = attributes
 
         self.result = self.setNodes(params, ans, fattributes)
+    def setNodes(self, params, ans, attributes, level=0):
+        node = tnode.Node()
+        columns, values, splits= self._setGlobals(params, ans)
+        # check if node is a leaf, then set it
+        if columns == None or len(np.unique(ans)) == 1:
+            node.leaf = True
+            node.classes = Counter(ans)
+            node.name = node.classes.most_common(1)[0][0]
+        #
+        else:
+            node.name = attributes[columns]
+            node.column = columns
+            # for each unique value we create a subset of the parameters and the answers
+            for i, val in enumerate(values):
+                # print val
+                sub_p = np.delete(params, columns, axis=1)
+                sub_p = sub_p[splits[i]]
+                # print sub_p
+                # print "\n"
+                new_attributes = np.delete(attributes, columns)
+                sub_a = ans[splits[i]]
+                # print sub_a
+                # print "\n"
+                node.children[val] = self.setNodes(sub_p, sub_a, new_attributes, level + 1)
+        return node
