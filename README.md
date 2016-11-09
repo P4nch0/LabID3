@@ -12,9 +12,9 @@ python run.py < [input_file]
 
 ## Team Members:
 
-- Francisco
-- Antonio
-- Angel
+- Francisco Núñez Gómez - A01202727
+- Antonio Esper Cook - A01202743
+- Angel Flores Rodríguez - A01201645
 
 ## Library used:
 
